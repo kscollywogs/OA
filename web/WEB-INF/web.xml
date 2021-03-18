@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <display-name>OA</display-name>
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+    <!-- 404页面 -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
+    <!-- 500页面 -->
+    <error-page>
+        <error-code>500</error-code>
+        <location>/500.jsp</location>
+    </error-page>
+
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
+    <filter>
+        <filter-name>UserLoginPrivilegeFilter</filter-name>
+        <filter-class>com.zdh.web.filter.UserLoginPrivilegeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>UserLoginPrivilegeFilter</filter-name>
+        <url-pattern>/forms/*</url-pattern>
+        <url-pattern>/overview/*</url-pattern>
+        <url-pattern>/index.jsp</url-pattern>
+        <url-pattern>/projectServlet</url-pattern>
+        <url-pattern>/personalProjectServlet</url-pattern>
+        <url-pattern>/jiediaoServlet</url-pattern>
+        <url-pattern>/designWorkingServlet</url-pattern>
+        <url-pattern>/programingPictureWorkingServlet</url-pattern>
+        <url-pattern>/debugWorkingServlet</url-pattern>
+        <url-pattern>/manageWorkingServlet</url-pattern>
+        <url-pattern>/dailyWorkingServlet</url-pattern>
+        <url-pattern>/personalSummaryServlet</url-pattern>
+        <url-pattern>/countSummaryServlet</url-pattern>
+        <url-pattern>/departmentSummaryServlet</url-pattern>
+        <url-pattern>/exportMonthSummaryServlet</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>RootFilter</filter-name>
+        <filter-class>com.zdh.web.filter.RootFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RootFilter</filter-name>
+        <url-pattern>/root/*</url-pattern>
+        <url-pattern>/manageUserServlet</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <display-name>UserServlet</display-name>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/userServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <display-name>ManageUserServlet</display-name>
+        <servlet-name>ManageUserServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.ManageUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ManageUserServlet</servlet-name>
+        <url-pattern>/manageUserServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>ProjectServlet</display-name>
+        <servlet-name>ProjectServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.ProjectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProjectServlet</servlet-name>
+        <url-pattern>/projectServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>PersonalProjectServlet</display-name>
+        <servlet-name>PersonalProjectServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.PersonalProjectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PersonalProjectServlet</servlet-name>
+        <url-pattern>/personalProjectServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>JiediaoServlet</display-name>
+        <servlet-name>JiediaoServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.JiediaoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JiediaoServlet</servlet-name>
+        <url-pattern>/jiediaoServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>DesignWorkingServlet</display-name>
+        <servlet-name>DesignWorkingServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.DesignWorkingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DesignWorkingServlet</servlet-name>
+        <url-pattern>/designWorkingServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>ProgramingPictureWorkingServlet</display-name>
+        <servlet-name>ProgramingPictureWorkingServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.ProgramingPictureWorkingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProgramingPictureWorkingServlet</servlet-name>
+        <url-pattern>/programingPictureWorkingServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>DebugWorkingServlet</display-name>
+        <servlet-name>DebugWorkingServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.DebugWorkingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DebugWorkingServlet</servlet-name>
+        <url-pattern>/debugWorkingServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>ManageWorkingServlet</display-name>
+        <servlet-name>ManageWorkingServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.ManageWorkingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ManageWorkingServlet</servlet-name>
+        <url-pattern>/manageWorkingServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>DailyWorkingServlet</display-name>
+        <servlet-name>DailyWorkingServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.DailyWorkingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DailyWorkingServlet</servlet-name>
+        <url-pattern>/dailyWorkingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <display-name>PersonalSummaryServlet</display-name>
+        <servlet-name>PersonalSummaryServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.PersonalSummaryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PersonalSummaryServlet</servlet-name>
+        <url-pattern>/personalSummaryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <display-name>DepartmentSummaryServlet</display-name>
+        <servlet-name>DepartmentSummaryServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.DepartmentSummaryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DepartmentSummaryServlet</servlet-name>
+        <url-pattern>/departmentSummaryServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>CountSummaryServlet</display-name>
+        <servlet-name>CountSummaryServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.CountSummaryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CountSummaryServlet</servlet-name>
+        <url-pattern>/countSummaryServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>ExportMonthSummaryServlet</display-name>
+        <servlet-name>ExportMonthSummaryServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.ExportMonthSummaryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExportMonthSummaryServlet</servlet-name>
+        <url-pattern>/exportMonthSummaryServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>ChartServlet</display-name>
+        <servlet-name>ChartServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.ChartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChartServlet</servlet-name>
+        <url-pattern>/chartServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>AddProjectServlet</display-name>
+        <servlet-name>AddProjectServlet</servlet-name>
+        <servlet-class>com.zdh.web.servlet.AddProjectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddProjectServlet</servlet-name>
+        <url-pattern>/addProjectServlet</url-pattern>
+    </servlet-mapping>
+
+<!--    <servlet>-->
+<!--        <display-name>UnityServlet</display-name>-->
+<!--        <servlet-name>UnityServlet</servlet-name>-->
+<!--        <servlet-class>com.zdh.web.servlet.UnityServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>UnityServlet</servlet-name>-->
+<!--        <url-pattern>/unityServlet</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+</web-app>
